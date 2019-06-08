@@ -59,8 +59,8 @@ app.io.on('connection', socket => {
     }
 );
 
-http.listen(3001, () => {
-    console.log('Example app listening on port 3001!')
+http.listen(process.env.PORT, () => {
+    console.log('Example app listening on port ', process.env.PORT)
     if (process.env.NODE_ENV === "dev") {
         localtunnel(3001, { subdomain: '6nimmt'}, (err, tunnel) => {
             if (err) console.log('error', error)
