@@ -1,17 +1,15 @@
-const fs = require('fs')
 const app = require('express')();
 const cors = require('cors')
 const mongoose = require('mongoose')
 const localtunnel = require('localtunnel')
-//const key = fs.readFileSync('../host.key')
-//const cert = fs.readFileSync('../host.cert')
 const http = require('http').createServer(app);
-//const https = require('https').createServer({ key, cert }, app);
+const dotenv = require('dotenv');
 app.io = require('socket.io')(http);
 const routes = require('./routes')
 const Hand = require('./models/Hand')
 const Party = require('./models/Party')
 const helpers = require('./helpers')
+dotenv.config();
 
 mongoose.connect(
     `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-leuuc.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`,
@@ -63,8 +61,10 @@ app.io.on('connection', socket => {
 
 http.listen(3001, () => {
     console.log('Example app listening on port 3001!')
-    localtunnel(3001, { subdomain: '6nimmt'}, (err, tunnel) => {
-        if (err) console.log('error', error)
-        console.log('Tunnel open in : ', tunnel.url);
-    });
+    if (process.env.NODE_ENV === "dev") {
+        localtunnel(3001, { subdomain: '6nimmt'}, (err, tunnel) => {
+            if (err) console.log('error', error)
+            console.log('Tunnel open in : ', tunnel.url);
+        });
+    }
 })
