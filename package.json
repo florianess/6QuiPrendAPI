@@ -1,0 +1,26 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "boom": "^7.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "fastify": "^1.13.3",
+    "fastify-swagger": "^1.0.0",
+    "global": "^4.3.2",
+    "jsonwebtoken": "^8.4.0",
+    "localtunnel": "^1.9.1",
+    "mongoose": "^5.4.3",
+    "nodemon": "^1.18.9",
+    "socket.io": "^2.2.0",
+    "underscore": "^1.9.1"
+  }
+}
