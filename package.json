@@ -18,7 +18,7 @@
     "fastify": "^1.13.3",
     "fastify-swagger": "^1.0.0",
     "global": "^4.3.2",
-    "jsonwebtoken": "^8.4.0",
+    "jsonwebtoken": "^9.0.0",
     "localtunnel": "^1.9.1",
     "mongoose": "^5.4.3",
     "nodemon": "^1.18.9",
